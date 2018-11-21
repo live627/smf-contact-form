@@ -14,9 +14,9 @@ function template_main()
 				', $context['page_title'], '
 			</h3>
 		</div>
-		<form action="', $scripturl, '?action=contact" method="post" style="margin: 16px">
-			<span class="upperframe"><span></span></span>
-			<div class="roundframe">
+		<div class="information noup">
+			', $txt['contact_all_fields_required'], '
+		</div>
 		<form action="', $scripturl, '?action=contact" method="post">
 			<div class="windowbg noup">
 				<span class="half_content lower_padding"><b>', $txt['contact_field_from'], ':</b></span>
