@@ -4,6 +4,10 @@ function template_main()
 {
 	global $scripturl, $txt, $context;
 
+	if (!empty($context['errors']))
+		echo '
+				<div class="errorbox"><ul><li>', implode('</li><li>', $context['errors']), '</li></ul></div>';
+
 	echo '
 		<div class="cat_bar">
 			<h3 class="catbg">
