@@ -5,16 +5,14 @@ if (!defined('SMF'))
 
 function Contact()
 {
-	global $context, $mbname, $txt, $sourcedir, $modSettings, $webmaster_email;
+	global $context, $mbname, $txt, $sourcedir, $modSettings, $webmaster_email, $user_info;
 
-	// Users have no need to use this, just send a PM
 	if (!$user_info['is_guest'])
 		redirectexit();
 
 	loadTemplate('Contact');
 
-	// Are we submitting?
-	if (isset($_GET['sa']) && $_GET['sa'] == 'save')
+	if (isset($_POST['send']))
 	{
 		checkSession('post');
 		validateToken('contact');
@@ -24,7 +22,7 @@ function Contact()
 		{
 			require_once($sourcedir . '/Subs-Editor.php');
 			$verificationOptions = array(
-				'id' => 'register',
+				'id' => 'contact',
 			);
 			$context['visual_verification'] = create_control_verification($verificationOptions, true);
 
