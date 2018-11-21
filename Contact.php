@@ -12,6 +12,10 @@ function Contact()
 
 	loadTemplate('Contact');
 	$context['robot_no_index'] = true;
+	$context['linktree'][] = array(
+		'url' => $scripturl . '?action=contact',
+		'name' => $txt['contact_title'],
+	);
 
 	if (isset($_POST['send']))
 	{
