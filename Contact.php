@@ -11,6 +11,7 @@ function Contact()
 		redirectexit();
 
 	loadTemplate('Contact');
+	$context['robot_no_index'] = true;
 
 	if (isset($_POST['send']))
 	{
