@@ -18,14 +18,8 @@ function Contact()
 	{
 		checkSession('post');
 		validateToken('contact');
-
-		// Can't send a lot of these in a row, no sir!
-		spamProtection('contact');
-
-		// No errors, yet.
 		$context['errors'] = array();
 
-		// Check whether the visual verification code was entered correctly.
 		if (!empty($modSettings['reg_verification']) && $context['user']['is_guest'])
 		{
 			require_once($sourcedir . '/Subs-Editor.php');
@@ -42,16 +36,15 @@ function Contact()
 			}
 		}
 
-		// Check the fields
 		$fields = array('from', 'email', 'subject', 'message');
-		foreach($fields as $field)
-			if(empty($_POST[$field]))
+		foreach ($fields as $field)
+			if (empty($_POST[$field]))
 				$context['errors'][] = $txt['contact_' . $field . '_blank'];
 
-		// For send mail function
-		require_once($sourcedir . '/Subs-Post.php');
-
-		$message = <<<EOD
+		if (empty($context['errors']))
+		{
+			spamProtection('contact');
+			$message = <<<EOD
 Name: {$_POST['from']}
 Email: {$_POST['email']}
 Subject: {$_POST['subject']}

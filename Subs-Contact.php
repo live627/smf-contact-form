@@ -34,3 +34,8 @@ function contact_actions(&$action_array)
 {
 	$action_array['contact'] = array('Contact.php', 'Contact');
 }
+
+function contact_spam_protection(&$timeOverrides)
+{
+	$timeOverrides['contact'] = 60;
+}

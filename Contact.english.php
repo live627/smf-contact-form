@@ -18,3 +18,4 @@ $txt['contact_field_submit'] = 'Send Email';
 $txt['contact_success'] = 'Your message has been sent!';
 $txt['contact_success_link'] = 'Return to the message board';
 $txt['whoall_contact'] = 'Filling out the <a href="' . $scripturl . '?action=contact">contact</a> form.';
+$txt['contact_WaitTime_broken'] = 'You will have to wait about %1$d seconds to send another email.';
