@@ -9,7 +9,7 @@ function contact_load_theme()
 	loadLanguage('Contact');
 }
 
-function contact_menu_buttons($menu_buttons)
+function contact_menu_buttons(&$menu_buttons)
 {
 	global $txt, $user_info, $scripturl;
 
@@ -22,9 +22,9 @@ function contact_menu_buttons($menu_buttons)
 	$new_menu_buttons = array();
 	foreach ($menu_buttons as $area => $info)
 	{
-		$new_menu_buttons[$area] = $info;
-		if ($area == 'help')
+		if ($area == 'signup')
 			$new_menu_buttons['contact'] = $new_button;
+		$new_menu_buttons[$area] = $info;
 	}
 
 	$menu_buttons = $new_menu_buttons;
