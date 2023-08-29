@@ -25,7 +25,7 @@ function Contact()
 
 		if (!empty($modSettings['reg_verification']) && $context['user']['is_guest'])
 		{
-			require_once($sourcedir . '/Subs-Editor.php');
+			require_once $sourcedir . '/Subs-Editor.php';
 			$verificationOptions = array(
 				'id' => 'contact',
 			);
@@ -55,10 +55,10 @@ Subject: {$_POST['subject']}
 {$_POST['message']}
 EOD;
 
-			require_once($sourcedir . '/Subs-Post.php');
-			sendmail($webmaster_email, $mbname.' - '.$_POST['subject'], $message, $_POST['email']);
+			require_once $sourcedir . '/Subs-Post.php';
+			sendmail($webmaster_email, $mbname . ' - ' . %_POST['subject'], $message, $_POST['email']);
 
-			$context['sub_template']  = 'send';
+			$context['sub_template'] = 'send';
 			$context['page_title'] = $txt['contact_title_sent'];
 			return;
 		}
@@ -66,7 +66,7 @@ EOD;
 
 	if (!empty($modSettings['reg_verification']))
 	{
-		require_once($sourcedir . '/Subs-Editor.php');
+		require_once $sourcedir . '/Subs-Editor.php';
 		$verificationOptions = array(
 			'id' => 'contact',
 		);
