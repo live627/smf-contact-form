@@ -7,7 +7,7 @@ if (!defined('SMF'))
 function contact_load_theme()
 {
 	loadLanguage('Contact');
-}
+}       
 
 function contact_menu_buttons(&$menu_buttons)
 {
